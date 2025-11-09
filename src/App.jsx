@@ -1,28 +1,33 @@
-import { useState } from 'react'
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Collections from './components/Collections';
+import Trending from './components/Trending';
+import Newsletter from './components/Newsletter';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Footer() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <footer className="py-10 border-t border-zinc-200/60 dark:border-zinc-800/60">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-600 dark:text-zinc-400">
+        <p>© {new Date().getFullYear()} Anime Verse • Made with ♥</p>
+        <div className="flex items-center gap-5">
+          <a href="#collections" className="hover:text-pink-600">Collections</a>
+          <a href="#trending" className="hover:text-pink-600">Trending</a>
+          <a href="#newsletter" className="hover:text-pink-600">Newsletter</a>
         </div>
       </div>
-    </div>
-  )
+    </footer>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <div className="min-h-screen bg-white dark:bg-zinc-950 selection:bg-pink-200 selection:text-pink-900">
+      <Navbar />
+      <Hero />
+      <Collections />
+      <Trending />
+      <Newsletter />
+      <Footer />
+    </div>
+  );
+}
